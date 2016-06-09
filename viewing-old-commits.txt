@@ -1,0 +1,32 @@
+git checkout
+> git checkout master
+Return to the master branch. This is a way to get back to the
+"current" state of the project
+
+> git checkout <commit> <file>
+Check out a previous version of a file. The <file> in the current directory
+is made an exact copy of the one from <commit> and adds it to the staging
+area
+
+> git checkout <commit>
+Update all files in the working directory to match the specified commit.
+HEAD now points to a commit rather than master or some other local branch.
+This is called a detached head mode.
+
+How to view an Old Revision:
+> git log --oneline
+This will list all the commits in brief
+> git checkout <commit>
+This will make working directory match the exact state of
+the specified commit. Nothing you do in here will be saved in your repository. To continue developing, you need to get back to the current state of your project using:
+> git checkout master
+This assumes you're developing on the default master branch.
+
+Checking out a file:
+To revert a file to a previous commit:
+> git checkout <commit> <file>
+This affects the current state of your project. The file in the
+working directory will be reverted to the one in the specified commit
+and the file will be added to the staging area. If you decide you don't want to keep the old version, you can checkout the most recent version with the following:
+> git checkout HEAD <file>
+
