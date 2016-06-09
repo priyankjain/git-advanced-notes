@@ -1,0 +1,87 @@
+git remote:
+Allows you to create, view and delete connection to other
+repositories:
+
+> git remote
+List the remote connections you have to other repositories
+
+> git remote -v
+List the remote connections to other repositories with URL
+
+> git remote add <name> <url>
+Create a new connection to a remote repository
+
+> git remote rm <name>
+Remove connection to remote repository called <name>
+
+> git remote rename <old-name> <new-name>
+Rename a remote connection from old-name to new-name
+
+git fetch
+Imports commits from a remote repository into your local repository
+> git fetch <remote>
+Fetch all of the branches from the repository. All the remote
+commits are downloaded as remote branches.
+
+> git fetch <remote> <branch>
+Fetch only the specified branch
+
+Checking out a remote branch results in a detached HEAD state. 
+To view your remote branches, simply pass the -r flag to the
+git branch command. Remote branches are prefixed by the remote
+they belong to so that you don't mix them up with local branches.
+
+How to synchronize local repository with central repository's
+master branch:
+> git checkout master
+> git fetch origin
+> git merge origin/master
+
+git pull:
+> git pull <remote>
+Fetch the specified remote's copy of the current branch
+and immediately merge it into the local copy. Equivalent to 
+git fetch <remote> followed by
+git merge origin/<current-branch>
+
+> git pull --rebase <remote>
+Same as above command, but instead of using git merge to integrate
+the remote branch with the local one, use git rebase
+
+> git config --global branch.autosetuprebase always
+All git pull commands will integrate via git rebase instead of git merge
+
+How to synchronize local repository with central repository's master branch:
+> git checkout master
+> git pull --rebase origin
+
+git push:
+Pushing is how you transfer commits from your local repository
+to a remote repo
+> git push <remote> <branch>
+Push the specified branch to remote along with all of the
+necessary commits and internal objects. This creates a local
+branch in the destination repository.
+
+> git push <remote> --force
+Same as above command, but force the push even if it results in a
+non-fast-forward merge
+
+> git push <remote> --all
+Push all local branches to the specified remote
+
+> git push <remote> --tags
+Tags are not automatically pushed when you push a branch or use the --all option. The --tags flag sends all of your local tags to the remote repository.
+
+- Only force push when you realize that the commits you just shared 
+were not quite right and you fixed them with a git commit --amend
+or an interactive rebase.
+- Only push to bare repositories
+
+How to publish local commits to central repository:
+> git checkout master
+> git fetch origin master
+> git rebase -i origin/master
+> git push origin master
+
+
