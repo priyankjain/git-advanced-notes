@@ -1,0 +1,48 @@
+git status
+> git status
+List which files are staged, unstaged and untracked
+It simply shows what's been going on with git add and git commit.
+
+Ignoring files:
+Adding the following to a .gtignore file in your project 
+will prevent compiled Python modules from appearing in git status:
+*.pyc
+
+git log: Displays committed snapshots
+While git status lets you inspect the working directory and the staging area, git long only operates on the committed history
+
+> git log
+Display the entire commit history using the default formatting
+
+> git log -n <limit>
+Display the last n commits
+
+> git log --oneline
+Condense each commit to a single line
+
+> git log --stat
+Along the originary git log information, include which files are altered and the relative number of lines that were added or deleted from each of them
+
+> git log -p
+Display the patch representing each commit. This shows the full diff of each commit, which is the most detailed view you can have of your project history
+
+> git log --author="<pattern>"
+Search for commits by a particular author
+
+> git log --grep="<pattern>"
+Search for commits with a commit message that matches <pattern>
+
+> git log <since>..<until>
+Show only commits that occur between <since> and <until>. Both arguments can be either a commit ID, a branch name, HEAD or any other kind of revision reference
+
+> git log <file>
+Only display commits that include the specified file
+
+> git log --graph --decorate --oneline
+--graph flag will draw a text based graph of the commits on the left hand side of the commit messages.
+--decorate adds the name of branches or tags of the commits that are shown
+--oneline shows the commit information on a single line
+
+> git log --oneline master..some-feature
+Displays a brief overview of all the commits that are in some-feature
+that are not in master.
